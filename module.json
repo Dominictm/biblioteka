@@ -2,7 +2,7 @@
   "id": "biblioteka",
   "title": "Biblioteka WoD VtM",
   "description": "Русскоязычные библиотеки компендиумов для Vampire: the Masquerade (V20) — оружие, достоинства/недостатки, дисциплины, ритуалы.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -24,7 +24,7 @@
   },
   "url": "https://github.com/Dominictm/biblioteka",
   "manifest": "https://raw.githubusercontent.com/Dominictm/biblioteka/master/module.json",
-  "download": "https://github.com/Dominictm/biblioteka/releases/download/v1.1.1/biblioteka.zip",
+  "download": "https://github.com/Dominictm/biblioteka/releases/download/v1.1.2/biblioteka.zip",
   "packs": [
     { "name": "vampiremelee", "label": "Оружие ближнего боя", "system": "worldofdarkness", "path": "packs/vampiremelee", "type": "Item", "private": false, "flags": {} },
     { "name": "vampireranged", "label": "Стрелковое оружие", "system": "worldofdarkness", "path": "packs/vampireranged", "type": "Item", "private": false, "flags": {} },

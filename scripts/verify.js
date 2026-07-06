@@ -22,6 +22,7 @@ const PREFIX = { items: '!items!' };
 function countExcludingFolders(dir) {
   let count = 0;
   for (const name of fs.readdirSync(dir)) {
+    if (name.startsWith('.')) continue; // skip tool/editor cache dirs (e.g. .impeccable, .git)
     const full = path.join(dir, name);
     if (fs.statSync(full).isDirectory()) {
       count += countExcludingFolders(full);

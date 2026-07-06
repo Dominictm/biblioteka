@@ -21,6 +21,7 @@ const STATS_TEMPLATE = {
 function readJsonFilesRecursive(dir) {
   const files = [];
   for (const name of fs.readdirSync(dir)) {
+    if (name.startsWith('.')) continue; // skip tool/editor cache dirs (e.g. .impeccable, .git)
     const full = path.join(dir, name);
     if (fs.statSync(full).isDirectory()) {
       files.push(...readJsonFilesRecursive(full));
