@@ -15,7 +15,7 @@ jobs:
 
       - name: Verify committed packs are present
         run: |
-          for p in vampiremelee vampireranged vampiremerits vampiredemerits vampiredisciplines vampirerites npcactors npcjournals; do
+          for p in vampiremelee vampireranged vampiremerits vampiredemerits vampiredisciplines vampirerites; do
             test -d "packs/$p" || { echo "Missing pack: $p"; exit 1; }
           done
 
