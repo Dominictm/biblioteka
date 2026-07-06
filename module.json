@@ -1,0 +1,38 @@
+{
+  "id": "biblioteka",
+  "title": "Biblioteka WoD VtM",
+  "description": "Русскоязычные библиотеки компендиумов для Vampire: the Masquerade (V20) — оружие, достоинства/недостатки, дисциплины, ритуалы, NPC.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Dominictm",
+      "url": "https://github.com/Dominictm"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "worldofdarkness",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "url": "https://github.com/Dominictm/biblioteka",
+  "manifest": "https://raw.githubusercontent.com/Dominictm/biblioteka/main/module.json",
+  "download": "https://github.com/Dominictm/biblioteka/releases/download/v1.0.0/biblioteka.zip",
+  "packs": [
+    { "name": "vampiremelee", "label": "Оружие ближнего боя", "system": "worldofdarkness", "path": "packs/vampiremelee", "type": "Item", "private": false, "flags": {} },
+    { "name": "vampireranged", "label": "Стрелковое оружие", "system": "worldofdarkness", "path": "packs/vampireranged", "type": "Item", "private": false, "flags": {} },
+    { "name": "vampiremerits", "label": "Достоинства", "system": "worldofdarkness", "path": "packs/vampiremerits", "type": "Item", "private": false, "flags": {} },
+    { "name": "vampiredemerits", "label": "Недостатки", "system": "worldofdarkness", "path": "packs/vampiredemerits", "type": "Item", "private": false, "flags": {} },
+    { "name": "vampiredisciplines", "label": "Дисциплины", "system": "worldofdarkness", "path": "packs/vampiredisciplines", "type": "Item", "private": false, "flags": {} },
+    { "name": "vampirerites", "label": "Ритуалы", "system": "worldofdarkness", "path": "packs/vampirerites", "type": "Item", "private": false, "flags": {} },
+    { "name": "npcactors", "label": "NPC", "system": "worldofdarkness", "path": "packs/npcactors", "type": "Actor", "private": false, "flags": {} },
+    { "name": "npcjournals", "label": "NPC — журналы", "system": "worldofdarkness", "path": "packs/npcjournals", "type": "JournalEntry", "private": false, "flags": {} }
+  ]
+}

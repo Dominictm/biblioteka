@@ -1,0 +1,14 @@
+{
+  "name": "biblioteka",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Русскоязычные библиотеки компендиумов WoD VtM для системы worldofdarkness (Foundry VTT)",
+  "type": "commonjs",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "verify": "node scripts/verify.js"
+  },
+  "dependencies": {
+    "classic-level": "^3.0.0"
+  }
+}
