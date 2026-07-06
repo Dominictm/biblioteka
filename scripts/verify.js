@@ -15,11 +15,9 @@ const CHECKS = [
   { kind: 'items', source: 'wod-nedostatki/packs/_source/vampiredemerits', dest: 'vampiredemerits' },
   { kind: 'items', source: 'wod-disciplines/packs/_source/vampiredisciplines', dest: 'vampiredisciplines' },
   { kind: 'items', source: 'wod-rites/packs/_source/vampirerites', dest: 'vampirerites' },
-  { kind: 'actors', source: 'wod-npc/packs/_source/actors', dest: 'npcactors' },
-  { kind: 'journals', source: 'wod-npc/packs/_source/journals', dest: 'npcjournals' },
 ];
 
-const PREFIX = { items: '!items!', actors: '!actors!', journals: '!journal!' };
+const PREFIX = { items: '!items!' };
 
 function countExcludingFolders(dir) {
   let count = 0;

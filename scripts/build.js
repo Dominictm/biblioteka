@@ -61,55 +61,6 @@ async function compileItems(sourceDir, destDir) {
   return { folders: folders.length, items: items.length };
 }
 
-async function compileActors(sourceDir, destDir) {
-  if (fs.existsSync(destDir)) fs.rmSync(destDir, { recursive: true });
-  fs.mkdirSync(destDir, { recursive: true });
-
-  const db = new ClassicLevel(destDir, { keyEncoding: 'utf8', valueEncoding: 'utf8' });
-  await db.open();
-
-  const batch = db.batch();
-  let count = 0;
-  for (const name of fs.readdirSync(sourceDir)) {
-    if (!name.endsWith('.json')) continue;
-    const doc = JSON.parse(fs.readFileSync(path.join(sourceDir, name), 'utf8'));
-    batch.put(`!actors!${doc._id}`, JSON.stringify(doc));
-    count++;
-  }
-  await batch.write();
-  await db.close();
-
-  return { actors: count };
-}
-
-async function compileJournals(sourceDir, destDir) {
-  if (fs.existsSync(destDir)) fs.rmSync(destDir, { recursive: true });
-  fs.mkdirSync(destDir, { recursive: true });
-
-  const db = new ClassicLevel(destDir, { keyEncoding: 'utf8', valueEncoding: 'utf8' });
-  await db.open();
-
-  const batch = db.batch();
-  let journals = 0;
-  let pages = 0;
-  for (const name of fs.readdirSync(sourceDir)) {
-    if (!name.endsWith('.json')) continue;
-    const doc = JSON.parse(fs.readFileSync(path.join(sourceDir, name), 'utf8'));
-    const docPages = doc.pages || [];
-    const journalDoc = { ...doc, pages: docPages.map((p) => p._id) };
-    batch.put(`!journal!${doc._id}`, JSON.stringify(journalDoc));
-    journals++;
-    for (const page of docPages) {
-      batch.put(`!journal.pages!${doc._id}.${page._id}`, JSON.stringify(page));
-      pages++;
-    }
-  }
-  await batch.write();
-  await db.close();
-
-  return { journals, pages };
-}
-
 const LIBRARIES = [
   { kind: 'items', source: 'wod-melee/packs/_source/vampiremelee', dest: 'vampiremelee' },
   { kind: 'items', source: 'wod-ranged/packs/_source/vampireranged', dest: 'vampireranged' },
@@ -117,11 +68,9 @@ const LIBRARIES = [
   { kind: 'items', source: 'wod-nedostatki/packs/_source/vampiredemerits', dest: 'vampiredemerits' },
   { kind: 'items', source: 'wod-disciplines/packs/_source/vampiredisciplines', dest: 'vampiredisciplines' },
   { kind: 'items', source: 'wod-rites/packs/_source/vampirerites', dest: 'vampirerites' },
-  { kind: 'actors', source: 'wod-npc/packs/_source/actors', dest: 'npcactors' },
-  { kind: 'journals', source: 'wod-npc/packs/_source/journals', dest: 'npcjournals' },
 ];
 
-const COMPILERS = { items: compileItems, actors: compileActors, journals: compileJournals };
+const COMPILERS = { items: compileItems };
 
 async function main() {
   for (const lib of LIBRARIES) {
